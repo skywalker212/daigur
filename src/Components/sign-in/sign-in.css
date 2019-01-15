@@ -1,0 +1,21 @@
+.signin-modal{
+    position: absolute;
+    top: 200px;
+    left: 350px;
+    right: 350px;
+    bottom: 200px;
+    background-color: papayawhip;
+    border: 10px solid rgb(255, 194, 97);
+    border-top-width: 0;
+    border-left-width: 0;  
+    display:flex;
+}
+
+.signin-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(2, 0, 3, 0.514);
+}

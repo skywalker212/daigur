@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
+import Header from './header/header.jsx'
+import {Provider} from 'react-redux';
+import configureStore from './../Store/configureStore';
+
+var store = configureStore();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        <div className="header-text">daigur</div>
-        <button className="sign-in">Sign in</button>
-        </header>
-      </div>
+        <Provider store={store}><Header/></Provider>
     );
   }
 }

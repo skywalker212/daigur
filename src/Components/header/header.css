@@ -1,0 +1,19 @@
+
+.App-header{
+    display: flex;
+    height: 40px;
+    background-color: chartreuse;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-text{
+    font-size: 20px;
+    color: blue;
+    margin-left: 10px;
+  }
+  
+  .sign-in{
+    margin-right: 10px;
+  }

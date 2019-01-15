@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import Header from './header/header.jsx'
-import {Provider} from 'react-redux';
-import configureStore from './../Store/configureStore';
+import {addProvider} from './../Actions/firebase';
+import {connect} from 'react-redux';
+import connectFirebase from './../Helper/connectFirebase';
 
-var store = configureStore();
 
 class App extends Component {
+  componentWillMount(){
+    connectFirebase.then((provider)=>{
+      this.props.addProvider(provider);
+    }).catch((err)=>{
+      console.error(err);
+    });
+  }
   render() {
     return (
-        <Provider store={store}><Header/></Provider>
+        <Header/>
     );
   }
 }
 
-export default App;
+var mapDispatchToProps = (dispatch, props)=>({
+  addProvider: (provider)=>dispatch(addProvider(provider))
+})
+
+export default connect(undefined, mapDispatchToProps)(App);

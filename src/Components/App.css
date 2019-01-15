@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+.App{
+  font-family: 'Press Start 2P', monospace;
+}
+
+.App-header{
+  display: flex;
+  height: 40px;
+  background-color: chartreuse;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text{
+  font-size: 20px;
+  color: blue;
+  margin-left: 10px;
+}
+
+.sign-in{
+  font-family: inherit;
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+  color: red;
+  text-shadow: 2px 2px 0 #641ee6;
+  margin-right: 10px;
+}

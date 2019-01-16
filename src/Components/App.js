@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './header/header.jsx'
 import {addProvider} from './../Actions/firebase';
 import Upload from './Upload/upload.jsx';
+import Uploads from './Uploads/uploads.jsx';
 import {connect} from 'react-redux';
 import connectFirebase from './../Helper/connectFirebase';
 
@@ -19,6 +20,7 @@ class App extends Component {
       <div className="main">
         <Header/>
         <Upload/>
+        <Uploads/>
       </div>
     );
   }
@@ -26,6 +28,6 @@ class App extends Component {
 
 let mapDispatchToProps = (dispatch, props)=>({
   addProvider: (provider)=>dispatch(addProvider(provider))
-})
+});
 
 export default connect(undefined, mapDispatchToProps)(App);

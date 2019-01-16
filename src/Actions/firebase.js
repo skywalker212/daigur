@@ -17,3 +17,10 @@ export const removeUser = ()=>{
         type: 'REMOVE_USER'
     }
 }
+
+export const addHistory = (history)=>{
+    return {
+        type: 'ADD_HISTORY',
+        history
+    }
+};

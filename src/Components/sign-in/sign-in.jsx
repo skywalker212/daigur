@@ -44,7 +44,6 @@ class SignIn extends React.Component{
                 let user = result.user;
                 sessionStorage.setItem('user',JSON.stringify(user));
                 ths.props.addUser(user);
-                console.log(user.uid);
                 ths.handleCloseModal();
                 ths.setState({...ths.state, githubText:'Sign Out'});
               }).catch(function(error) {

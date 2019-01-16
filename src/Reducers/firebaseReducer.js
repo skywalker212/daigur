@@ -18,6 +18,10 @@ const firebaseReducer = (state = firebaseReducerDefaultState, action)=>{
             return {
                 ...state, user: undefined
             }
+        case 'ADD_HISTORY':
+            return {
+                ...state, history: action.history
+            }
         default:
             return state;
     }

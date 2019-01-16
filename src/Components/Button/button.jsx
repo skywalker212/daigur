@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.css';
 
-var Button = (props)=>(
+let Button = (props)=>(
     <button onClick={props.onClick} className={`${props.className} ret-btn`}>{props.text}</button>
 );
 

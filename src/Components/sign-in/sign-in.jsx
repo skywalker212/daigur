@@ -5,20 +5,19 @@ import './sign-in.css';
 import Button from './../Button/button.jsx';
 import firebase from 'firebase';
 import {addUser, removeUser} from './../../Actions/firebase';
-import { stat } from 'fs';
 
 class SignIn extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             showModal:false,
-            githubText:'Sign in with GitHub'
+            githubText:props.user!==undefined?'Sign Out':'Sign in with GitHub'
         }
     };
     render = ()=>{
         return (
             <div className="com-sign">
-                <Button className="sign-in" onClick={this.handleOpenModal} text={this.props.user!=undefined?"Hello, "+this.props.user.displayName:"Sign In"}/>
+                <Button className="sign-in" onClick={this.handleOpenModal} text={this.props.user!==undefined?"Hello, "+this.props.user.displayName:"Sign In"}/>
                 <ReactModal isOpen={this.state.showModal}
                             contentLabel="Sign IN"
                             onRequestClose={this.handleCloseModal}
@@ -37,13 +36,15 @@ class SignIn extends React.Component{
     }
 
     handleSign = ()=>{
-        var ths = this;
+        let ths = this;
         if(this.props.user===undefined){
             this.setState({...this.state, githubText:'loading...'});
             firebase.auth().signInWithPopup(this.props.provider).then(function(result) {
-                var token = result.credential.accessToken;
-                var user = result.user;
+                // let token = result.credential.accessToken;
+                let user = result.user;
+                sessionStorage.setItem('user',JSON.stringify(user));
                 ths.props.addUser(user);
+                console.log(user.uid);
                 ths.handleCloseModal();
                 ths.setState({...ths.state, githubText:'Sign Out'});
               }).catch(function(error) {
@@ -55,6 +56,7 @@ class SignIn extends React.Component{
             firebase.auth().signOut().then(function() {
                 ths.setState({...ths.state, githubText:"Sign in with GitHub"});
                 ths.props.removeUser();
+                sessionStorage.removeItem('user');
                 ths.handleCloseModal();
               }).catch(function(error) {
                   console.log(error);

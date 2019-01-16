@@ -1,0 +1,19 @@
+.upload-btn{
+    opacity: 0;
+}
+
+.file-input-form{
+    font-size: 10px;
+}
+
+.ret-btn{
+    background-color: transparent;
+    font-size: 15px;
+    border: none;
+    color: red;
+}
+
+.preview{
+    display: flex;
+    flex-direction: row;
+}

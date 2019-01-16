@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './header/header.jsx'
 import {addProvider} from './../Actions/firebase';
+import Upload from './Upload/upload.jsx';
 import {connect} from 'react-redux';
 import connectFirebase from './../Helper/connectFirebase';
 
@@ -15,12 +16,15 @@ class App extends Component {
   }
   render() {
     return (
+      <div className="main">
         <Header/>
+        <Upload/>
+      </div>
     );
   }
 }
 
-var mapDispatchToProps = (dispatch, props)=>({
+let mapDispatchToProps = (dispatch, props)=>({
   addProvider: (provider)=>dispatch(addProvider(provider))
 })
 

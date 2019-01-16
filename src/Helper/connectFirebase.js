@@ -1,14 +1,14 @@
 import firebase from 'firebase';
 
-var connectFirebase = new Promise((resolve,reject)=>{
-    var firConfig = {
+let connectFirebase = new Promise((resolve,reject)=>{
+    let firConfig = {
       apiKey: process.env.REACT_APP_apiKey,
       authDomain: process.env.REACT_APP_authDomain,
       databaseURL: process.env.REACT_APP_databaseURL,
       storageBucket: process.env.REACT_APP_storageBucket
     }
     
-    console.log(firConfig);
+    // console.log(firConfig);
     
     try{
         firebase.initializeApp(firConfig);
@@ -17,7 +17,7 @@ var connectFirebase = new Promise((resolve,reject)=>{
     }
     
     try{
-        var provider = new firebase.auth.GithubAuthProvider();
+        let provider = new firebase.auth.GithubAuthProvider();
         resolve(provider);
     }catch(err){
         reject(err);

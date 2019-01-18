@@ -2,6 +2,10 @@
     opacity: 0;
 }
 
+.submit-btn:disabled{
+    color: grey;
+}
+
 .file-input-form{
     font-size: 10px;
 }

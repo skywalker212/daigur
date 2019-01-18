@@ -24,7 +24,6 @@ class Post extends React.Component{
     componentDidMount(){
         let storageRef = firebase.storage().ref();
         storageRef.child(this.props.location).getDownloadURL().then((url)=>{
-            console.log(url);
             this.setState({
                 url
             });

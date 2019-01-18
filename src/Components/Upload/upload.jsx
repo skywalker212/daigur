@@ -13,6 +13,12 @@ let fileTypes = [
 
 class Upload extends React.Component{
 
+    constructor(){
+        super();
+        this.state = {
+            fileUploaded: false
+        }
+    }
     
     componentDidMount(state,props){
         let input = document.querySelector('input');
@@ -31,7 +37,7 @@ class Upload extends React.Component{
                         <p>No files currently selected for upload</p>
                     </div>
                     <div>
-                        <button className="ret-btn">Submit</button>
+                        <button className="ret-btn submit-btn" disabled={!this.state.fileUploaded}>Submit</button>
                     </div>
                     </form>
             </div>
@@ -104,7 +110,9 @@ class Upload extends React.Component{
 
                 listItem.appendChild(image);
                 listItem.appendChild(para);
-
+                this.setState({
+                    fileUploaded: true
+                });
             } else {
                 para.textContent = 'File name ' + file.name + ': Not a valid file type. Update your selection.';
                 listItem.appendChild(para);

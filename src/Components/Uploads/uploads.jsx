@@ -8,10 +8,9 @@ class Uploads extends React.Component{
 
     componentWillMount(){
         let history = firebase.database().ref('history');
-        history.on("child_added", function(snapshot, prevChildKey) {
-            var newPost = snapshot.val();
-            console.log(newPost);
-        });
+        firebase.database.ref().onCreate((data)=>{
+            console.log(data);
+        })
         history.on('value',(snapshot)=>{
             // console.log(snapshot.val());
             let uploadHistory = [];
